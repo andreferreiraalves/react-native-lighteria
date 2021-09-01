@@ -1,14 +1,30 @@
 import React from "react";
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Image, StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 import { FONT_SIZE_SMALL, WHITE } from "../../../../styles/styles";
 
-const Item = ({ titulo, imagem }) => {
+const Item = ({ titulo, imagem, estudio, itemDesc, itemName, preco, id }) => {
+  const navigation = useNavigation();
+
   return (
-    <View style={styles.containerItem}>
+    <TouchableOpacity
+      style={styles.containerItem}
+      onPress={() =>
+        navigation.push("DetalhesProduto", {
+          imagem,
+          titulo,
+          estudio,
+          itemDesc,
+          itemName,
+          preco,
+          id,
+        })
+      }
+    >
       <Image source={imagem} style={styles.imagem} resizeMode="contain" />
       <Text style={styles.texto}>{titulo}</Text>
-    </View>
+    </TouchableOpacity>
   );
 };
 

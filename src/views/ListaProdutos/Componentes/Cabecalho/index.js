@@ -1,22 +1,14 @@
 import React from "react";
 import { StyleSheet, Text, View, Image } from "react-native";
-import {
-  COR_DE_FUNDO,
-  FONT_SIZE_XX_LARGE,
-  WHITE,
-} from "../../../../styles/styles";
+import { Sacola } from "../../../../components/sacola";
+import { COR_DE_FUNDO, FONT_SIZE_XX_LARGE } from "../../../../styles/styles";
 
 const Cabecalho = () => {
   return (
     <>
       <View style={styles.containerTitulo}>
         <Text style={styles.titulo}>Lighteria</Text>
-        <View style={styles.containerSacola}>
-          <Image
-            source={require("../../../../../assets/images/icone-sacola.png")}
-            style={styles.imagem}
-          />
-        </View>
+        <Sacola />
       </View>
       <View style={styles.containerDescription}>
         <View style={styles.separador} />
@@ -39,15 +31,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginBottom: 15,
     // paddingHorizontal: 24,
-  },
-  imagem: {
-    height: 30,
-    width: 30,
-  },
-  containerSacola: {
-    backgroundColor: WHITE,
-    padding: 18,
-    borderRadius: 30,
   },
   containerDescription: {
     // paddingHorizontal: 24,
