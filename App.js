@@ -1,18 +1,31 @@
 import React from "react";
-import { StyleSheet, SafeAreaView } from "react-native";
-import ListaProdutos from "./src/views/ListaProdutos/ListaProdutos";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
+import ListaProdutos from "./src/views/ListaProdutos";
+import DetalhesProduto from "./src/views/DetalhesProduto/";
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <SafeAreaView style={styles.container}>
-      <ListaProdutos />
-    </SafeAreaView>
+    <NavigationContainer>
+      <Stack.Navigator defaultScreenOptions="ListaProdutos">
+        <Stack.Screen
+          name="ListaProdutos"
+          component={ListaProdutos}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="DetalhesProduto"
+          component={DetalhesProduto}
+          options={{
+            headerShown: false,
+          }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#F4F0F4",
-  },
-});
