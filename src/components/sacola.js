@@ -20,7 +20,8 @@ export const Sacola = () => {
         <View style={styles.containerQuantidade}>
           <Text style={styles.textoQuantidade}>
             {itensCheckout.reduce(
-              (acumulado, atual) => acumulado + atual.quantidade
+              (acumulado, atual) => acumulado + atual.quantidade,
+              0
             )}
           </Text>
         </View>
